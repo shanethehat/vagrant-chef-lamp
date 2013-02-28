@@ -1,4 +1,4 @@
 .vagrant
 composer.phar
 Symfony/vendor/
-.swp
+*.swp
