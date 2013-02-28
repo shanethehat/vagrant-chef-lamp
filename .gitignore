@@ -1,0 +1,4 @@
+.vagrant
+composer.phar
+Symfony/vendor/
+.swp

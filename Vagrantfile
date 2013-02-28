@@ -10,6 +10,10 @@ Vagrant::Config.run do |config|
 
     config.vm.forward_port 80, 1337
 
+    # change mounting permissions on the root folder so that Apache can write
+
+    config.vm.share_folder("v-root", "/vagrant", ".", :extra => "dmode=777,fmode=777")
+
     # chef-solo config
 
     config.vm.provision :chef_solo do |chef|
@@ -18,14 +22,27 @@ Vagrant::Config.run do |config|
        
         chef.add_recipe("apt")
         chef.add_recipe("build-essential")
+        chef.add_recipe("xml")
         chef.add_recipe("mysql")
         chef.add_recipe("apache2::mod_php5")
-        chef.add_recipe("php")
-        chef.add_recipe("vagrant_main")
+        chef.add_recipe("apache2::mod_rewrite")
+        chef.add_recipe("php::module_apc")
+        chef.add_recipe("php::module_mysql")
+        chef.add_recipe("git")
+        chef.add_recipe("composer")
+        chef.add_recipe("hostfile")
 
         chef.json.merge!({
-            :mysql => {
-                :server_root_password => "rootpass"
+            "mysql" => {
+                "server_root_password" => "rootpass"
+            },
+            "php" => {
+                "install_method" => "source",
+                "conf_dir" => '/etc/php5/apache2',
+                "directives" => {
+                    'date.timezone' => 'Europe/London',
+                    'short_open_tag' => 0,
+                }
             }
         })
 
