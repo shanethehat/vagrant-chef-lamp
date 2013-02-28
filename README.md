@@ -1,6 +1,6 @@
-# Simple Vagrant LAMP set up with Chef
+# Practise Symfony App using Vagrant and Chef
 
-This is a simple VM that runs using Vagrant and VirtualBox. Sets up a LAMP server on Ubuntu 12.04.
+This is a simple Symfony application that runs from a Vagrant powered VM. The VM is running on Ubuntu 12.04 with PHP 5.3.10.
 
 
 ## Usage
