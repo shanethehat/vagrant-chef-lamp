@@ -28,16 +28,17 @@ Vagrant::Config.run do |config|
         chef.add_recipe("apache2::mod_rewrite")
         chef.add_recipe("php::module_apc")
         chef.add_recipe("php::module_mysql")
+        chef.add_recipe("php-modules")
         chef.add_recipe("git")
         chef.add_recipe("composer")
         chef.add_recipe("hostfile")
-
+        
         chef.json.merge!({
             "mysql" => {
                 "server_root_password" => "rootpass"
             },
             "php" => {
-                "install_method" => "source",
+#"install_method" => "source",
                 "conf_dir" => '/etc/php5/apache2',
                 "directives" => {
                     'date.timezone' => 'Europe/London',
