@@ -18,6 +18,10 @@ Vagrant::Config.run do |config|
 
     config.vm.share_folder("v-root", "/vagrant", ".", :extra => "dmode=777,fmode=777", :nfs => true)
 
+    # increase default memory capacity
+
+    config.vm.customize ["modifyvm", :id, "--memory", "1024"]
+
     # chef-solo config
 
     config.vm.provision :chef_solo do |chef|
