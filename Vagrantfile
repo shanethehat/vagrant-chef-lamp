@@ -10,9 +10,13 @@ Vagrant::Config.run do |config|
 
     config.vm.forward_port 80, 1337
 
+    # set up host only networking for nfs support
+
+    config.vm.network :hostonly, "192.168.1.200"
+
     # change mounting permissions on the root folder so that Apache can write
 
-    config.vm.share_folder("v-root", "/vagrant", ".", :extra => "dmode=777,fmode=777")
+    config.vm.share_folder("v-root", "/vagrant", ".", :extra => "dmode=777,fmode=777", :nfs => true)
 
     # chef-solo config
 
