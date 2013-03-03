@@ -2,3 +2,4 @@
 composer.phar
 Symfony/vendor/
 *.swp
+vendor/

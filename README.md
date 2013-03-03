@@ -7,7 +7,24 @@ This is a simple Symfony application that runs from a Vagrant powered VM. The VM
 
 1. Install Vagrant and VirtualBox by the appropriate method for your OS
 1. Run `vagrant up` from the project root to fire up the VM
+1. Ensure Symfony's dependancies are pulled in with composer
 1. Visit http://localhost:1337 to see the output
+
+
+## Tests
+
+The tests require the dependancies to be pulled in with Composer, and Selenium >= 2.31. Once Selenium is running execute `./run_behat.sh`.
+
+### Composer
+
+Get Composer if it not already installed and run `php composer.phar install`
+
+### Selenium
+
+Download and run Selenium with the default settings:
+
+    wget http://selenium.googlecode.com/files/selenium-server-standalone-2.31.0.jar
+    java -jar selenium-server-standalone-2.31.0.jar 
 
 
 ## Links

@@ -1,0 +1,12 @@
+default:
+  
+  filters:
+    tags: ~@ignore
+    
+  extensions:
+    Behat\MinkExtension\Extension:
+      show_cmd: firefox %s
+      base_url:  'http://localhost:1337'
+      goutte: ~
+      selenium2: ~
+        
