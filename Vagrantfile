@@ -12,7 +12,7 @@ Vagrant::Config.run do |config|
 
     # set up host only networking for nfs support
 
-    config.vm.network :hostonly, "192.168.1.200"
+    config.vm.network :hostonly, "172.168.1.200"
 
     # change mounting permissions on the root folder so that Apache can write
 
